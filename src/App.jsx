@@ -171,12 +171,18 @@ const App = () => {
           setPersons(persons.concat(newPersons))
           setNewName('')
           setNewNumber('')
+
+          setNotification(`Added ${newName}`)
+          setTimeout(() => {
+            setNotification(null)
+          }, 2000)
         }
-      )
-      setNotification(`Added ${newName}`)
-      setTimeout(() => {
-        setNotification(null)
-      }, 2000)
+      ).catch(error => {
+        setErrorMessage(error.response.data.error)
+        setTimeout(() => {
+            setErrorMessage(null)
+          }, 2000)
+      })
       return
     }
 
