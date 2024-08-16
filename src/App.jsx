@@ -200,7 +200,8 @@ with a new one?`)) return
         }, 2000)
       }
     ).catch(error => {
-      setErrorMessage(`Information of ${newName} already been removed from server`)
+      setErrorMessage(`Information of ${newName} already been removed from server or
+number format is incorrect`)
       setTimeout(() => {
           setErrorMessage(null)
         }, 2000)
